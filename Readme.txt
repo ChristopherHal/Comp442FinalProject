@@ -1,1 +1,1 @@
-
+The library for creating an RL agent to handle the assigning of tasks to agents
