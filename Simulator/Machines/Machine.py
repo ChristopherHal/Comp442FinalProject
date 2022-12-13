@@ -9,7 +9,7 @@ class Machine(ABC):
         self.resources: Resources = resources
         self.isWorking = False
         self.curWorkingTask: Task = None
-        self.machineId = uuid.uuid3()
+        self.machineId = uuid.uuid4()
         self.logger = logger
 
     def getId(self) -> uuid.UUID:
@@ -42,8 +42,8 @@ class Machine(ABC):
 
     def canRunTask(self, task: Task) -> bool:
         """ Return if the inputted task can be run on the machine"""
-        enough_mem = self.resources.memory >= task.getReq().memmory
-        enough_cpus = self.resources.cpus >= task.getReq.cpus
+        enough_mem = self.resources.memory >= task.getReq().memory
+        enough_cpus = self.resources.cpus >= task.getReq().cpus
         has_misc_req = True
         for mist_req in task.getReq().task_req:
             if mist_req not in self.resources.satified_req:

@@ -5,8 +5,8 @@ from Simulator.Tasks.Task import Task
 
 class Logger(ABC):
     """Class responsable for logging during run will be used for stat generation"""
-    def __init__(self, machines: list[Machine]) -> None:
-        self.machines = machines
+    def __init__(self) -> None:
+        # self.machines = machines
         self.completed_tasks = []
         self.started_tasks = []
         self.cur_time = 0
@@ -14,11 +14,11 @@ class Logger(ABC):
 
     def log_finish(self, machine: Machine, task: Task):
         """Log the completion of a task"""
-        self.completed_tasks.append((self.cur_time, machine.getId, task))
+        self.completed_tasks.append((self.cur_time, machine.getId(), task))
     
     def log_load_task(self, machine: Machine, task: Task):
-        """Log the finish of the task"""
-        self.started_tasks.append((self.cur_time, machine.getId, task))
+        """Log the start of the task"""
+        self.started_tasks.append((self.cur_time, machine.getId(), task))
     
     
 
