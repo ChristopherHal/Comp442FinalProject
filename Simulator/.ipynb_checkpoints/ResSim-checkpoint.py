@@ -101,6 +101,7 @@ class ResSim:
                 if len(self.tasks_queue[task_type]) < self.max_que_len:
                     # print("here")
                     self.current_task_status[task_type][task_num] = 0
+                # reward = self.task_type_assigner(task.getReq()) * 10 
             else:
                 reward = -10
         
